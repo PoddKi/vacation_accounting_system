@@ -1,0 +1,148 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:137.0) Gecko/20100101 Firefox/137.0" version="26.2.12">
+  <diagram name="Страница — 1" id="yU_iHrNawyH5OQehpRPI">
+    <mxGraphModel dx="953" dy="445" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2339" pageHeight="3300" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="g55B_H-PgtnlqVRdnf8R-1" value="&lt;div&gt;Сотрудник&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="250" y="170" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="g55B_H-PgtnlqVRdnf8R-2" value="Просмотр всех своих отпусков" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="440" y="100" width="170" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="g55B_H-PgtnlqVRdnf8R-3" value="Планирование отпуска: выбор дат, указание заместителя" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="440" y="190" width="170" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="g55B_H-PgtnlqVRdnf8R-4" value="Просмотр отпусков коллег по своему подразделению" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="440" y="280" width="170" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="g55B_H-PgtnlqVRdnf8R-5" value="" style="endArrow=classic;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" target="g55B_H-PgtnlqVRdnf8R-2">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="290" y="200" as="sourcePoint" />
+            <mxPoint x="400" y="130" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="g55B_H-PgtnlqVRdnf8R-6" value="" style="endArrow=classic;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" target="g55B_H-PgtnlqVRdnf8R-3">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="290" y="200" as="sourcePoint" />
+            <mxPoint x="450" y="150" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="g55B_H-PgtnlqVRdnf8R-7" value="" style="endArrow=classic;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" target="g55B_H-PgtnlqVRdnf8R-4">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="290" y="200" as="sourcePoint" />
+            <mxPoint x="460" y="160" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="g55B_H-PgtnlqVRdnf8R-8" value="&lt;div&gt;Руководитель&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="250" y="450" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="g55B_H-PgtnlqVRdnf8R-9" value="Просмотр отпусков всех сотрудников своего СП и подчинённых СП" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="440" y="390" width="170" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="g55B_H-PgtnlqVRdnf8R-10" value="Утверждение / отклонение заявок на отпуск" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="440" y="490" width="170" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="g55B_H-PgtnlqVRdnf8R-11" value="" style="endArrow=classic;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" target="g55B_H-PgtnlqVRdnf8R-9">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="290" y="480" as="sourcePoint" />
+            <mxPoint x="330" y="420" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="g55B_H-PgtnlqVRdnf8R-12" value="" style="endArrow=classic;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" target="g55B_H-PgtnlqVRdnf8R-10">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="290" y="480" as="sourcePoint" />
+            <mxPoint x="450" y="440" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="g55B_H-PgtnlqVRdnf8R-13" value="Сотрудник отдела&lt;br&gt;кадров" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="260" y="810" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="g55B_H-PgtnlqVRdnf8R-14" value="Импорт: структура предприятия, сотрудники, календарь" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="430" y="600" width="170" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="g55B_H-PgtnlqVRdnf8R-15" value="Управление графиком отпусков (открытие/закрытие)" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="430" y="700" width="170" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="g55B_H-PgtnlqVRdnf8R-16" value="Редактирование справочников" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="430" y="800" width="170" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="g55B_H-PgtnlqVRdnf8R-17" value="Формирование отчётов" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="430" y="900" width="170" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="g55B_H-PgtnlqVRdnf8R-19" value="Управление ролями" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="430" y="1000" width="170" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="g55B_H-PgtnlqVRdnf8R-20" value="" style="endArrow=classic;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" target="g55B_H-PgtnlqVRdnf8R-14">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="300" y="840" as="sourcePoint" />
+            <mxPoint x="400" y="690" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="g55B_H-PgtnlqVRdnf8R-21" value="" style="endArrow=classic;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" target="g55B_H-PgtnlqVRdnf8R-15">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="300" y="840" as="sourcePoint" />
+            <mxPoint x="440" y="650" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="g55B_H-PgtnlqVRdnf8R-22" value="" style="endArrow=classic;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" target="g55B_H-PgtnlqVRdnf8R-16">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="300" y="840" as="sourcePoint" />
+            <mxPoint x="440" y="750" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="g55B_H-PgtnlqVRdnf8R-23" value="" style="endArrow=classic;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" target="g55B_H-PgtnlqVRdnf8R-17">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="300" y="840" as="sourcePoint" />
+            <mxPoint x="410" y="890" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="g55B_H-PgtnlqVRdnf8R-24" value="" style="endArrow=classic;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" target="g55B_H-PgtnlqVRdnf8R-19">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="300" y="840" as="sourcePoint" />
+            <mxPoint x="450" y="860" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="g55B_H-PgtnlqVRdnf8R-25" value="&lt;div&gt;Администратор&lt;/div&gt;" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="240" y="1300" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="g55B_H-PgtnlqVRdnf8R-26" value="Полный доступ ко всем подсистемам, изменение информации в них" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="430" y="1130" width="170" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="g55B_H-PgtnlqVRdnf8R-27" value="" style="endArrow=classic;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" target="g55B_H-PgtnlqVRdnf8R-26">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="280" y="1320" as="sourcePoint" />
+            <mxPoint x="440" y="1050" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="g55B_H-PgtnlqVRdnf8R-28" value="Назначение ролей" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="430" y="1230" width="170" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="g55B_H-PgtnlqVRdnf8R-29" value="" style="endArrow=classic;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" target="g55B_H-PgtnlqVRdnf8R-28">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="280" y="1320" as="sourcePoint" />
+            <mxPoint x="440" y="1180" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="g55B_H-PgtnlqVRdnf8R-30" value="Аудит: просмотр журнала действий" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="430" y="1330" width="170" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="g55B_H-PgtnlqVRdnf8R-31" value="Настройка параметров (лимиты, проценты, периоды)" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="430" y="1430" width="170" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="g55B_H-PgtnlqVRdnf8R-32" value="" style="endArrow=classic;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" target="g55B_H-PgtnlqVRdnf8R-30">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="280" y="1320" as="sourcePoint" />
+            <mxPoint x="440" y="1280" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="g55B_H-PgtnlqVRdnf8R-33" value="" style="endArrow=classic;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" target="g55B_H-PgtnlqVRdnf8R-31">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="280" y="1320" as="sourcePoint" />
+            <mxPoint x="440" y="1380" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
