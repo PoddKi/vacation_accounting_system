@@ -6,6 +6,7 @@
         public string FullName { get; }
         public RolesEnum Role { get; }
         public Department Department { get; }
+        public List<Vacation> Vacations { get; }
 
         public User (int id, string fullName, RolesEnum role, Department department)
         {
@@ -13,6 +14,7 @@
             FullName = fullName;
             Role = role;
             Department = department;
+            Vacations = new List<Vacation> ();
         }
     }
 }
