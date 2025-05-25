@@ -1,0 +1,35 @@
+﻿@page "/import"
+@rendermode InteractiveServer
+
+
+<PageTitle>Импорт</PageTitle>
+
+<InDevelopmentModal @ref="in_development_modal"></InDevelopmentModal>
+
+<div class="d-grid gap-5">
+    <InputFile class="form-control" id="import-org-structure-btn" hidden OnChange="@InDevelopment" accept=".csv,.xlsx,.xls" />
+    <label class="upload" for="import-org-structure-btn">Импорт организационной структуры</label>
+
+    <InputFile class="form-control" id="import-employees-list-btn" hidden OnChange="@InDevelopment" accept=".csv,.xlsx,.xls" />
+    <label class="upload" for="import-employees-list-btn">Импорт списка сотрудников</label>
+
+    <InputFile class="form-control" id="import-production-calendar-btn" hidden OnChange="@InDevelopment" accept=".csv,.xlsx,.xls" />
+    <label class="upload" for="import-production-calendar-btn">Импорт производственного календаря</label>
+</div>
+
+@code {
+    InDevelopmentModal in_development_modal;
+
+    void InDevelopment()
+    {
+        in_development_modal.OnShowModalClick();
+    }
+
+    // private async Task SingleUpload(InputFileChangeEventArgs e)
+    // {
+    //     MemoryStream ms = new MemoryStream();
+    //     await e.File.OpenReadStream().CopyToAsync(ms);
+    //     var bytes = ms.ToArray();
+    //     //Actor.Photo = bytes;
+    // }
+}

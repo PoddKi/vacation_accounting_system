@@ -1,0 +1,14 @@
+﻿.d-grid.gap-5 {
+    max-width: fit-content;
+}
+
+label.upload {
+    background-color: gray;
+    color: white;
+    font-size:x-large;
+    padding: 0.5rem;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+

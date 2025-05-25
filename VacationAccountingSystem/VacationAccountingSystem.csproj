@@ -1,13 +1,25 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net9.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>df475686-d60d-44d8-9340-b4a343784725</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Components\Новая папка1\**" />
+    <Content Remove="Components\Новая папка1\**" />
+    <EmbeddedResource Remove="Components\Новая папка1\**" />
+    <None Remove="Components\Новая папка1\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Components\Pages\Component.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Components\Новая папка\" />
     <Folder Include="Controllers\" />
     <Folder Include="Repositories\" />
     <Folder Include="DB\" />

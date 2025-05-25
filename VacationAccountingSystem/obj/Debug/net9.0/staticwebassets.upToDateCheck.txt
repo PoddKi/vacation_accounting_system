@@ -1,0 +1,4 @@
+wwwroot\favicon.png
+wwwroot\logo.png
+wwwroot\app.css
+C:\Users\Grinya\Source\Repos\vacation_accounting_system\VacationAccountingSystem\wwwroot\app.css

@@ -1,0 +1,20 @@
+﻿
+<Modal @ref="modal" Title="В РАЗРАБОТКЕ!">
+    <FooterTemplate>
+        <Button Color="ButtonColor.Secondary" @onclick="OnHideModalClick">ЗАКРЫТЬ</Button>
+    </FooterTemplate>
+</Modal>
+
+@code {
+    private Modal modal = default;
+
+    public async Task OnShowModalClick()
+    {
+        await modal?.ShowAsync();
+    }
+
+    private async Task OnHideModalClick()
+    {
+        await modal?.HideAsync();
+    }
+}

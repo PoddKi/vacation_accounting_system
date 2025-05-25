@@ -1,0 +1,18 @@
+﻿@page "/reports"
+@rendermode InteractiveServer
+
+<PageTitle>Отчёты</PageTitle>
+
+<InDevelopmentModal @ref="in_development_modal"></InDevelopmentModal>
+
+<Button Color="ButtonColor.Success" Size="ButtonSize.Large" @onclick="InDevelopment">Выгрузить график отпусков</Button>
+<Button Color="ButtonColor.Danger" Size="ButtonSize.Large" @onclick="InDevelopment">Выгрузить проблемы планирования отпусков</Button>
+
+@code {
+    InDevelopmentModal in_development_modal;
+
+    void InDevelopment()
+    {
+        in_development_modal.OnShowModalClick();
+    }
+}
