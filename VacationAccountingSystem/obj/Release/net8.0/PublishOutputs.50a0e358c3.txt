@@ -1,0 +1,7 @@
+C:\Users\Grinya\source\repos\VacationAccountingSystem\obj\Release\net8.0\PubTmp\Out\VacationAccountingSystem.exe
+C:\Users\Grinya\source\repos\VacationAccountingSystem\obj\Release\net8.0\PubTmp\Out\appsettings.Development.json
+C:\Users\Grinya\source\repos\VacationAccountingSystem\obj\Release\net8.0\PubTmp\Out\appsettings.json
+C:\Users\Grinya\source\repos\VacationAccountingSystem\obj\Release\net8.0\PubTmp\Out\VacationAccountingSystem.dll
+C:\Users\Grinya\source\repos\VacationAccountingSystem\obj\Release\net8.0\PubTmp\Out\VacationAccountingSystem.deps.json
+C:\Users\Grinya\source\repos\VacationAccountingSystem\obj\Release\net8.0\PubTmp\Out\VacationAccountingSystem.runtimeconfig.json
+C:\Users\Grinya\source\repos\VacationAccountingSystem\obj\Release\net8.0\PubTmp\Out\VacationAccountingSystem.pdb
