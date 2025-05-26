@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using VacationAccountingSystem.Components;
+using VacationAccountingSystem.Data;
 using VacationAccountingSystem.Models;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,8 +10,11 @@ builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
 // Настройка подключения к БД
-builder.Services.AddDbContext<ApplicationContext>(options =>
-    options.UseNpgsql(builder.Configuration.GetConnectionString("PostgreSQLConnection")));
+builder.Services.AddDbContext<VacationDbContext>(x =>
+    {
+        var connectionString = builder.Configuration.GetConnectionString("PostgreSqlConnection");
+        x.UseSqlServer(connectionString);
+    });
 
 builder.Services.AddBlazorBootstrap();
 
