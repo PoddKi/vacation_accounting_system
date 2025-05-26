@@ -55,4 +55,12 @@ C:\Users\Grinya\Source\Repos\vacation_accounting_system\VacationAccountingSystem
 C:\Users\Grinya\Source\Repos\vacation_accounting_system\VacationAccountingSystem\obj\Debug\net9.0\scopedcss\Components\Pages\Import.razor.rz.scp.css
 C:\Users\Grinya\Source\Repos\vacation_accounting_system\VacationAccountingSystem\obj\Debug\net9.0\compressed\k0emfladdd-1ssi5917rr.gz
 C:\Users\Grinya\Source\Repos\vacation_accounting_system\VacationAccountingSystem\obj\Debug\net9.0\compressed\tv7h72eqp3-8pod26shgv.gz
-C:\Users\Grinya\Source\Repos\vacation_accounting_system\VacationAccountingSystem\obj\Debug\net9.0\compressed\30ad5os4gj-0sx7pibwxb.gz
+C:\Users\Grinya\Source\Repos\vacation_accounting_system\VacationAccountingSystem\bin\Debug\net9.0\ClosedXML.dll
+C:\Users\Grinya\Source\Repos\vacation_accounting_system\VacationAccountingSystem\bin\Debug\net9.0\ClosedXML.Parser.dll
+C:\Users\Grinya\Source\Repos\vacation_accounting_system\VacationAccountingSystem\bin\Debug\net9.0\DocumentFormat.OpenXml.dll
+C:\Users\Grinya\Source\Repos\vacation_accounting_system\VacationAccountingSystem\bin\Debug\net9.0\DocumentFormat.OpenXml.Framework.dll
+C:\Users\Grinya\Source\Repos\vacation_accounting_system\VacationAccountingSystem\bin\Debug\net9.0\ExcelNumberFormat.dll
+C:\Users\Grinya\Source\Repos\vacation_accounting_system\VacationAccountingSystem\bin\Debug\net9.0\RBush.dll
+C:\Users\Grinya\Source\Repos\vacation_accounting_system\VacationAccountingSystem\bin\Debug\net9.0\SixLabors.Fonts.dll
+C:\Users\Grinya\Source\Repos\vacation_accounting_system\VacationAccountingSystem\bin\Debug\net9.0\System.IO.Packaging.dll
+C:\Users\Grinya\Source\Repos\vacation_accounting_system\VacationAccountingSystem\obj\Debug\net9.0\compressed\30ad5os4gj-1fbos9sjsa.gz

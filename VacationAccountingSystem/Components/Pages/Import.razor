@@ -5,31 +5,138 @@
 <PageTitle>Импорт</PageTitle>
 
 <InDevelopmentModal @ref="in_development_modal"></InDevelopmentModal>
+<FileUploadedModal @ref="file_uploaded_modal"></FileUploadedModal>
+<FileNotUploadedModal @ref="file_not_uploaded_modal"></FileNotUploadedModal>
 
 <div class="d-grid gap-5">
-    <InputFile class="form-control" id="import-org-structure-btn" hidden OnChange="@InDevelopment" accept=".csv,.xlsx,.xls" />
+    <InputFile class="form-control" id="import-org-structure-btn" hidden OnChange="@HandleOrgStructureUpload" accept=".xlsx" />
     <label class="upload" for="import-org-structure-btn">Импорт организационной структуры</label>
 
-    <InputFile class="form-control" id="import-employees-list-btn" hidden OnChange="@InDevelopment" accept=".csv,.xlsx,.xls" />
+    <span>Data: @data</span>
+
+    <InputFile class="form-control" id="import-employees-list-btn" hidden OnChange="@HandleEmployeesListUpload" accept=".xlsx" />
     <label class="upload" for="import-employees-list-btn">Импорт списка сотрудников</label>
 
-    <InputFile class="form-control" id="import-production-calendar-btn" hidden OnChange="@InDevelopment" accept=".csv,.xlsx,.xls" />
-    <label class="upload" for="import-production-calendar-btn">Импорт производственного календаря</label>
+    @* <InputFile class="form-control" id="import-production-calendar-btn" hidden OnChange="@HandleProductionCalendarUpload" accept=".xlsx" />
+    <label class="upload" for="import-production-calendar-btn">Импорт производственного календаря</label> *@
 </div>
 
 @code {
     InDevelopmentModal in_development_modal;
+    FileUploadedModal file_uploaded_modal;
+    FileNotUploadedModal file_not_uploaded_modal;
+
+    String data = String.Empty;
+
 
     void InDevelopment()
     {
         in_development_modal.OnShowModalClick();
     }
 
-    // private async Task SingleUpload(InputFileChangeEventArgs e)
+    private async Task HandleOrgStructureUpload(InputFileChangeEventArgs e)
+    {
+        if (e.File is not null)
+        {
+            var file = e.File;
+
+            try
+            {
+                var newFileName = "departments_" + DateTime.Now.Ticks.ToString() + ".xlsx";
+
+                var folderPath = System.IO.Path.Combine(System.IO.Directory.GetCurrentDirectory(), "users_uploads", "org-structure");
+                var filePath = Path.Combine(folderPath, newFileName);
+                Directory.CreateDirectory(folderPath);
+
+                await using FileStream fileStream = new(filePath, FileMode.Create);
+                await file.OpenReadStream().CopyToAsync(fileStream);
+                fileStream.Close();
+
+                var workbook = new XLWorkbook(filePath);
+                var worksheet = workbook.Worksheet(1);
+
+                data = worksheet.Row(1).Cell(1).GetValue<String>();
+                bool empty = worksheet.Row(1).IsEmpty();
+
+                var rows = worksheet.RangeUsed().RowsUsed().Skip(1);
+                foreach (var row in rows)
+                {
+                    //var rowNumber = row.RowNumber();
+                }
+
+                await file_uploaded_modal.OnShowModalClick();
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception.Message);
+                await file_not_uploaded_modal.OnShowModalClick();
+            }
+        }
+    }
+
+    private async Task HandleEmployeesListUpload(InputFileChangeEventArgs e)
+    {
+        if (e.File is not null)
+        {
+            var file = e.File;
+
+            try
+            {
+                var newFileName = "employees_" + DateTime.Now.Ticks.ToString() + ".xlsx";
+
+                var folderPath = System.IO.Path.Combine(System.IO.Directory.GetCurrentDirectory(), "users_uploads", "employees_lists");
+                var filePath = Path.Combine(folderPath, newFileName);
+                Directory.CreateDirectory(folderPath);
+
+                await using FileStream fileStream = new(filePath, FileMode.Create);
+                await file.OpenReadStream().CopyToAsync(fileStream);
+                fileStream.Close();
+
+                var workbook = new XLWorkbook(filePath);
+                var ws1 = workbook.Worksheet(1);
+
+                data = ws1.Row(1).Cell(1).GetValue<String>();
+
+                await file_uploaded_modal.OnShowModalClick();
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception.Message);
+                await file_not_uploaded_modal.OnShowModalClick();
+            }
+        }
+    }
+
+    //      private async Task HandleProductionCalendarUpload(InputFileChangeEventArgs e)
     // {
-    //     MemoryStream ms = new MemoryStream();
-    //     await e.File.OpenReadStream().CopyToAsync(ms);
-    //     var bytes = ms.ToArray();
-    //     //Actor.Photo = bytes;
+    //     if (e.File is not null)
+    //     {
+    //         var file = e.File;
+
+    //         try
+    //         {
+    //             var newFileName = "departments_" + DateTime.Now.Ticks.ToString() + ".xlsx";
+
+    //             var folderPath = System.IO.Path.Combine(System.IO.Directory.GetCurrentDirectory(), "users_uploads", "org-structure");
+    //             var filePath = Path.Combine(folderPath, newFileName);
+    //             Directory.CreateDirectory(folderPath);
+
+    //             await using FileStream fileStream = new(filePath, FileMode.Create);
+    //             await file.OpenReadStream().CopyToAsync(fileStream);
+    //             fileStream.Close();
+
+    //             var workbook = new XLWorkbook(filePath);
+    //             var ws1 = workbook.Worksheet(1);
+
+    //             data = ws1.Row(1).Cell(1).GetValue<String>();
+
+    //             await file_uploaded_modal.OnShowModalClick();
+    //         }
+    //         catch (Exception exception)
+    //         {
+    //             Console.WriteLine(exception.Message);
+    //             await file_not_uploaded_modal.OnShowModalClick();
+    //         }
+    //     }
     // }
 }

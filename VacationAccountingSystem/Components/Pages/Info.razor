@@ -3,4 +3,100 @@
 
 <PageTitle>Нормативно-справочная информация</PageTitle>
 
-<h1>НОРМАТИВНО-СПРАВОЧНАЯ ИНФОРМАЦИЯ</h1>
+<Tabs>
+    <Tab Title="Организационная структура" Active="true">
+        <Content>
+            @* <MudPaper Width="300px" Elevation="0">
+                <MudTreeView T="string" ServerData="@LoadTreeItemData">
+                    <ItemTemplate>
+                        <MudTreeViewItem Value="@context.Value"
+                                         Items="@context.Children"
+                                         ItemsChanged="@(new Action<IReadOnlyCollection<TreeItemData<string>>>(items => OnItemsLoaded(context, items)))"
+                                         @bind-Expanded="@context.Expanded"
+                                         CanExpand="@context.Expandable" />
+                    </ItemTemplate>
+                </MudTreeView>
+            </MudPaper> *@
+        </Content>
+    </Tab>
+    <Tab Title="Сотрудники">
+        <Content>
+            <Grid TItem="User"
+                  Class="table table-hover table-bordered table-striped"
+                  Data="users"
+                  AllowPaging="true"
+                  AllowSorting="true"
+                  FiltersTranslationProvider="GridFiltersTranslationProvider"
+                  PaginationItemsTextFormat="{0} - {1} из {2} элементов"
+                  ItemsPerPageText=" элементов на страницу"
+                  PageSize="10"
+                  PageSizeSelectorVisible="true"
+                  AllowFiltering="true"
+                  Responsive="true">
+
+                 <GridColumns>
+                    <GridColumn TItem="User" HeaderText="ID" PropertyName="Id" SortString="Id" SortKeySelector="item => item.Id" FilterTextboxWidth="50" HeaderTextAlignment="Alignment.Center" TextAlignment="Alignment.Center">
+                        @context.Id
+                    </GridColumn>
+                    <GridColumn TItem="User" HeaderText="ФИО" PropertyName="FullName" SortString="FullName" SortKeySelector="item => item.FullName" FilterTextboxWidth="80">
+                        @context.FullName
+                    </GridColumn>
+                </GridColumns>
+
+            </Grid>
+        </Content>
+    </Tab>
+    @* <Tab Title="Производственный календарь">
+        <Content>
+            <p class="mt-3">This is the placeholder content for the <b>Contact</b> tab.</p>
+        </Content>
+    </Tab> *@
+</Tabs>
+
+@code {
+    public async Task<IReadOnlyCollection<TreeItemData<string>>> LoadTreeItemData(string parentValue)
+    {
+        //await Task.Delay(500);
+
+        return [
+            new TreeItemData<string> { Value = $"More Spam" },
+            new TreeItemData<string> { Value = $"L.E.D Door Mats", Expandable = false },
+            new TreeItemData<string> { Value = $"Car Beauty Salon",Expandable = false },
+            new TreeItemData<string> { Value = $"Fakedoors.com",  Expandable = false },
+            new TreeItemData<string> { Value = $"Bluetooth Toilet", Expandable = false }
+        ];
+    }
+
+    private async Task<IEnumerable<FilterOperatorInfo>> GridFiltersTranslationProvider()
+    {
+        var filtersTranslation = new List<FilterOperatorInfo>();
+
+        // number/date/boolean
+        filtersTranslation.Add(new("=", "Равняется", BlazorBootstrap.FilterOperator.Equals));
+        filtersTranslation.Add(new("!=", "Не равняется", BlazorBootstrap.FilterOperator.NotEquals));
+        // number/date
+        filtersTranslation.Add(new("<", "Меньше чем", BlazorBootstrap.FilterOperator.LessThan));
+        filtersTranslation.Add(new("<=", "Меньше чем или равняется", BlazorBootstrap.FilterOperator.LessThanOrEquals));
+        filtersTranslation.Add(new(">", "Больше чем", BlazorBootstrap.FilterOperator.GreaterThan));
+        filtersTranslation.Add(new(">=", "Больше чем или равняется", BlazorBootstrap.FilterOperator.GreaterThanOrEquals));
+        // string
+        filtersTranslation.Add(new("*a*", "Содержит", BlazorBootstrap.FilterOperator.Contains));
+        filtersTranslation.Add(new("!*a*", "Не содержит", BlazorBootstrap.FilterOperator.DoesNotContain));
+        filtersTranslation.Add(new("a**", "Начинается с", BlazorBootstrap.FilterOperator.StartsWith));
+        filtersTranslation.Add(new("**a", "Заканчивается на", BlazorBootstrap.FilterOperator.EndsWith));
+        //filtersTranslation.Add(new("=", "gelijk aan", FilterOperator.Equals));
+        // common
+        filtersTranslation.Add(new("x", "Очистить", BlazorBootstrap.FilterOperator.Clear));
+
+        return await Task.FromResult(filtersTranslation);
+    }
+
+    private List<User> users = new List<User>()
+    {
+        new User(1, "Сотрудник 1", RolesEnum.Employee, null),
+        new User(2, "Сотрудник 2", RolesEnum.HeadOfDepartment, null),
+        new User(3, "Сотрудник 3", RolesEnum.Employee, null),
+
+    };
+
+}

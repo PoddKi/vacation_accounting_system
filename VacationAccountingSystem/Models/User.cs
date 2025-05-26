@@ -5,7 +5,7 @@
         public int Id { get; }
         public string FullName { get; }
         public RolesEnum Role { get; }
-        public Department Department { get; }
+        public Department? Department { get; }
         public List<Vacation> Vacations { get; }
 
         public User (int id, string fullName, RolesEnum role, Department department)

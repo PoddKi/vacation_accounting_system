@@ -1,4 +1,7 @@
 is_global = true
+build_property.MudDebugAnalyzer = 
+build_property.MudAllowedAttributePattern = 
+build_property.MudAllowedAttributeList = 
 build_property.TargetFramework = net9.0
 build_property.TargetPlatformMinVersion = 
 build_property.UsingMicrosoftNETSdkWeb = true
@@ -54,6 +57,14 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Grinya/Source/Repos/vacation_accounting_system/VacationAccountingSystem/Components/Routes.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xSb3V0ZXMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Grinya/Source/Repos/vacation_accounting_system/VacationAccountingSystem/Components/UI/FileNotUploadedModal.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xVSVxGaWxlTm90VXBsb2FkZWRNb2RhbC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Grinya/Source/Repos/vacation_accounting_system/VacationAccountingSystem/Components/UI/FileUploadedModal.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xVSVxGaWxlVXBsb2FkZWRNb2RhbC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Grinya/Source/Repos/vacation_accounting_system/VacationAccountingSystem/Components/UI/InDevelopmentModal.razor]
