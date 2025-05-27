@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "8q6puPWqOXU=",
+  "dgSpecHash": "b2kvCUstPM4=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Grinya\\Source\\Repos\\vacation_accounting_system\\VacationAccountingSystem\\VacationAccountingSystem.csproj",
+  "projectFilePath": "C:\\Users\\jamaj\\source\\repos\\vacation_accounting_system1\\VacationAccountingSystem\\VacationAccountingSystem.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Grinya\\.nuget\\packages\\blazor.bootstrap\\3.3.1\\blazor.bootstrap.3.3.1.nupkg.sha512",
     "C:\\Users\\Grinya\\.nuget\\packages\\closedxml\\0.105.0\\closedxml.0.105.0.nupkg.sha512",
