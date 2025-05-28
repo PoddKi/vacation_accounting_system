@@ -1,14 +1,15 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using VacationAccountingSystem.Domains.Entities;
+using VacationAccountingSystem.Domain.Entities;
 
 namespace VacationAccountingSystem.Data;
 
 public class VacationDbContext : DbContext
 {
+    public DbSet<User> Users { get; set; }
+    public DbSet<Department> Departments { get; set; }
+
     public VacationDbContext(DbContextOptions dbContextOptions) : base(dbContextOptions)
     {
 
     }
-    
-    public DbSet<User> Users { get; set; }
 }

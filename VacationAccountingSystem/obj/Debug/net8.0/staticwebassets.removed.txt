@@ -1,2 +1,0 @@
-C:\Users\Grinya\Source\Repos\vacation_accounting_system\VacationAccountingSystem\wwwroot\bootstrap\bootstrap.min.css
-C:\Users\Grinya\Source\Repos\vacation_accounting_system\VacationAccountingSystem\wwwroot\bootstrap\bootstrap.min.css.map

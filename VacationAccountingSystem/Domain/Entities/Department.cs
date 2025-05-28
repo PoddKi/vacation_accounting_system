@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace VacationAccountingSystem.Domain.Entities;
 
-[Table("deparment")]
+[Table("department")]
 public record Department
 {
     [Key]
@@ -12,9 +12,10 @@ public record Department
     public int Id { get; init; }
 
     [Column("name")]
+    [Required]
     [MaxLength(100)]
     public string Name { get; init; }
 
-    [Column("parent_id")]
-    public int parent_id { get; init; }
+    [ForeignKey("parent_id")]
+    public Department? ParentDepartment { get; init; }
 }

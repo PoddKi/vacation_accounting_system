@@ -16,7 +16,7 @@
     background-color: #ffd800;
 }
 
-/*#blazor-error-ui {
+#blazor-error-ui[b-f85n1b18qt] {
     background: lightyellow;
     bottom: 0;
     box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.2);
@@ -28,16 +28,20 @@
     z-index: 1000;
 }
 
-#blazor-error-ui .dismiss {
+#blazor-error-ui .dismiss[b-f85n1b18qt] {
     cursor: pointer;
     position: absolute;
     right: 0.75rem;
     top: 0.5rem;
-}*/
+}
 /* _content/VacationAccountingSystem/Components/Layout/NavMenu.razor.rz.scp.css */
 /*.navbar-toggler.collapsed {
 
 }*/
+
+.navbar.navbar-expand-md[b-er55dr8p4s] {
+    flex:1;
+}
 
 .logo[b-er55dr8p4s] {
     width: 105px;
@@ -51,6 +55,12 @@
 
 .nav-item[b-er55dr8p4s]  .nav-link.active {
     text-decoration: underline;
+}
+
+.log-button[b-er55dr8p4s] {
+    font-size-adjust: 0.85;
+    position: absolute;
+    right: 5rem;
 }
 /* _content/VacationAccountingSystem/Components/Pages/Import.razor.rz.scp.css */
 .d-grid.gap-5[b-ij0szhk27t] {

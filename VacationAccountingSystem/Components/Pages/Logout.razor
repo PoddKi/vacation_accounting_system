@@ -1,0 +1,30 @@
+﻿@using Microsoft.AspNetCore.Authentication
+@using Microsoft.AspNetCore.Authentication.Cookies
+@using Microsoft.AspNetCore.Mvc
+@using Microsoft.AspNetCore.Mvc.RazorPages
+
+@page "/logout"
+
+@inject NavigationManager navigationManager
+
+<PageTitle>Производится выход...</PageTitle>
+
+@code {
+
+	[CascadingParameter]
+	public HttpContext? HttpContext { get; set; }
+
+	protected override async Task OnParametersSetAsync()
+	{
+		await base.OnParametersSetAsync();
+		if (HttpContext is not null)
+		{
+			if (HttpContext.User.Identity.IsAuthenticated)
+			{
+				await HttpContext.SignOutAsync();
+				navigationManager.NavigateTo("/", true);
+			}
+		}
+		navigationManager.NavigateTo("/logout", true);
+	}
+}

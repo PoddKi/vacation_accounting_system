@@ -1,8 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using VacationAccountingSystem.Models;
 
-namespace VacationAccountingSystem.Domains.Entities;
+namespace VacationAccountingSystem.Domain.Entities;
 
 [Table("user")]
 public record User
@@ -12,15 +11,31 @@ public record User
     [Column("id")]
     public int Id { get; init; }
 
+    [Column("email")]
+    [Required]
+    public string Email { get; init; }
+
+    [Column("password")]
+    [Required]
+    [MaxLength(50)]
+    public string Password { get; init; }
+
+    [Column("role")]
+    [Required]
+    [MaxLength(20)]
+    public string Role { get; init; }
+
     [Column("full_name")]
+    [Required]
     [MaxLength(100)]
     public string FullName { get; init; }
 
-    [Column("role")]
+    [Column("function")]
+    [Required]
     [MaxLength(100)]
-    public RolesEnum Role { get; init; }
+    public string Function { get; init; }
 
-    [Column("department")]
-    [MaxLength(100)]
-    public string Department { get; init; }
+    [ForeignKey("department_id")]
+    [Required]
+    public Department Department { get; init; }
 }

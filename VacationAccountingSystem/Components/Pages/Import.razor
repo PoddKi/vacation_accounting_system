@@ -1,6 +1,10 @@
-﻿@page "/import"
-@rendermode InteractiveServer
+﻿@using Microsoft.AspNetCore.Authorization
+@using BlazorBootstrap
+@using MudBlazor
 
+@page "/import"
+@rendermode InteractiveServer
+@attribute [Authorize(Roles = "HR,Admin")]
 
 <PageTitle>Импорт</PageTitle>
 

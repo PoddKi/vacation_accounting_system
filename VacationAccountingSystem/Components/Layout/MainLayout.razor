@@ -1,10 +1,10 @@
 ﻿@inherits LayoutComponentBase  
 
 <div class="page">
-    <MudThemeProvider/>
+    @* <MudThemeProvider/>
     <MudPopoverProvider/>
     <MudDialogProvider/>
-    <MudSnackbarProvider/>
+    <MudSnackbarProvider/> *@
     <div class="navbar">
         <NavMenu />
     </div>
@@ -16,8 +16,8 @@
     </main>
 </div>
 
-@* <div id="blazor-error-ui">
-    An unhandled error has occurred.
-    <a href="" class="reload">Reload</a>
+<div id="blazor-error-ui">
+    Возникла неизвестная ошибка
+    <a href="" class="reload">Перезагрузить страницу</a>
     <a class="dismiss">🗙</a>
-</div> *@
+</div>

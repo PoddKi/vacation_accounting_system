@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("VacationAccountingSystem")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e9030859c6d7a9745553e24703dbc03853f7adc0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+199dd489ab5e6ecd9a9c418eacc92836c8076874")]
 [assembly: System.Reflection.AssemblyProductAttribute("VacationAccountingSystem")]
 [assembly: System.Reflection.AssemblyTitleAttribute("VacationAccountingSystem")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

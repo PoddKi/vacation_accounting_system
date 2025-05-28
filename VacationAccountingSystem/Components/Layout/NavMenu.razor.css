@@ -2,6 +2,10 @@
 
 }*/
 
+.navbar.navbar-expand-md {
+    flex:1;
+}
+
 .logo {
     width: 105px;
     margin-left: 1.5rem;
@@ -14,4 +18,10 @@
 
 .nav-item ::deep .nav-link.active {
     text-decoration: underline;
+}
+
+.log-button {
+    font-size-adjust: 0.85;
+    position: absolute;
+    right: 5rem;
 }

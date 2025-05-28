@@ -1,5 +1,10 @@
-﻿@page "/reports"
+﻿@using Microsoft.AspNetCore.Authorization
+@using BlazorBootstrap
+@using MudBlazor
+
+@page "/reports"
 @rendermode InteractiveServer
+@attribute [Authorize(Roles = "HR,Admin")]
 
 <PageTitle>Отчёты</PageTitle>
 

@@ -1,5 +1,10 @@
-﻿@page "/"
+﻿@using Microsoft.AspNetCore.Authorization
+@using BlazorBootstrap
+@using MudBlazor
+
+@page "/"
 @rendermode InteractiveServer
+@attribute [Authorize(Roles = "Employee,HeadOfDepartment,HR,Admin")]
 
 <PageTitle>Отпуска</PageTitle>
 

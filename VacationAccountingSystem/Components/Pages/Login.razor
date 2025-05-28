@@ -1,0 +1,136 @@
+﻿@using System.Security.Claims
+@using Microsoft.AspNetCore.Authentication
+@using Microsoft.AspNetCore.Authentication.Cookies
+
+@page "/login"
+
+@inject VacationDbContext vacationDbContext
+@inject NavigationManager navigationManager
+
+<PageTitle>Вход</PageTitle>
+
+@if (Model != null)
+{
+	<div class="row">
+		<div class="col-lg-4 offset-lg-4 pt-4 pb-4 border">
+			<EditForm Model="@Model" OnValidSubmit="auth" FormName="LoginForm">
+				<DataAnnotationsValidator />
+
+
+				<div class="mb-3">
+					<InputText class="form-control" id="LoginForm.Email" @bind-Value="@Model.Email" Placeholder="Адрес электронной почты" />
+					<ValidationMessage For="() => Model.Email" />
+				</div>
+
+				<div class="mb-3">
+					<InputText class="form-control" id="LoginForm.Password" type="password" @bind-Value="@Model.Password" Placeholder="Пароль" />
+					<ValidationMessage For="() => Model.Password" />
+				</div>
+
+				<div class="mb-3 text-center">
+					<span class="text-danger">@errorMessage</span>
+				</div>
+				<div class="mb-3 d-grid gap-2">
+					<button type="submit" class="btn btn-primary">Войти</button>
+				</div>
+			</EditForm>
+		</div>
+	</div>
+}
+
+@code {
+	[CascadingParameter]
+	public HttpContext? HttpContext { get; set; }
+
+	[SupplyParameterFromForm]
+	// public LoginViewModel Model { get; set; } = new();
+	public LoginViewModel? Model { get; set; }
+
+	private string? errorMessage;
+
+	// private EditContext editContext;
+
+	// protected override async Task OnInitializedAsync()
+	// {
+	// 	//editContext = new EditContext(Model);
+	// 	Model ??= new();
+	// 	//await base.OnInitializedAsync();
+	// }
+
+	// private async Task t()
+	// {
+	// 	errorMessage = "Неправильный адрес электронной почты или пароль";
+	// 	return;
+	// }
+
+	// protected override void OnInitialized()
+	// {
+	// 	base.OnInitialized();
+	// 	var r = Model is null;
+	// 	Model ??= new();
+
+	// 	Model.Email = "sidorov@rosneft.ru";
+
+	// 	Model.Password = "admin_pass";
+	// }
+
+	protected override Task OnInitializedAsync()
+	{
+		return base.OnInitializedAsync();
+	}
+
+	protected override Task OnParametersSetAsync()
+	{
+		Model ??= new();
+
+		// Model.Email = "sidorov@rosneft.ru";
+
+		//Model.Password = "admin_pass";
+
+		return base.OnParametersSetAsync();
+	}
+
+	private void auth()
+	{
+		var user = vacationDbContext.Users.Where(x => x.Email == Model.Email).FirstOrDefault();
+		if (user is null || user.Password != Model.Password)
+		{
+			errorMessage = "Неправильный адрес электронной почты или пароль";
+			return;
+		}
+
+		var claims = new List<Claim>
+		{
+			new Claim(ClaimTypes.Email, Model.Email),
+			new Claim(ClaimTypes.Role, user.Role)
+		};
+
+		var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+		var principal = new ClaimsPrincipal(identity);
+
+		HttpContext.SignInAsync(principal);
+	}
+
+	// private async Task Authenticate()
+	// {
+	// 	var user = vacationDbContext.Users.Where(x => x.Email == Model.Email).FirstOrDefault();
+	// 	if (user is null || user.Password != Model.Password)
+	// 	{
+	// 		errorMessage = "Неправильный адрес электронной почты или пароль";
+	// 		return;
+	// 	}
+
+	// 	var claims = new List<Claim>
+	// 	{
+	// 		new Claim(ClaimTypes.Email, Model.Email),
+	// 		new Claim(ClaimTypes.Role, user.Role)
+	// 	};
+
+	// 	var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+	// 	var principal = new ClaimsPrincipal(identity);
+
+	// 	await HttpContext.SignInAsync(principal);
+
+	// 	navigationManager.NavigateTo("/");
+	// }
+}

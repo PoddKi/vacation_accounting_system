@@ -1,6 +1,4 @@
-﻿using System.Numerics;
-
-namespace VacationAccountingSystem.Models
+﻿namespace VacationAccountingSystem.Models
 {
     public class Department
     {
@@ -8,7 +6,7 @@ namespace VacationAccountingSystem.Models
         public string Name { get; }
         public int? ParentId { get; }
 
-        public List<User>  Users { get; }
+        public List<User> Users { get; }
 
         public Department(int id, string name, int? parentId = null)
         {
