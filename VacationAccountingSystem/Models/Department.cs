@@ -1,19 +1,23 @@
-﻿namespace VacationAccountingSystem.Models
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace VacationAccountingSystem.Models;
+
+[Table("department")]
+public record Department
 {
-    public class Department
-    {
-        public int Id { get; }
-        public string Name { get; }
-        public int? ParentId { get; }
+    [Key]
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    [Column("id")]
+    public int Id { get; init; }
 
-        public List<User> Users { get; }
+    [Column("name")]
+    [Required]
+    [MaxLength(100)]
+    public string Name { get; init; }
 
-        public Department(int id, string name, int? parentId = null)
-        {
-            Id = id;
-            Name = name;
-            ParentId = parentId;
-            Users = new List<User>();
-        }
-    }
+    [ForeignKey("parent_id")]
+    public Department? ParentDepartment { get; init; }
+
+    //public List<User> Users { get; }
 }

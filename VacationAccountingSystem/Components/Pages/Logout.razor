@@ -1,7 +1,5 @@
 ﻿@using Microsoft.AspNetCore.Authentication
-@using Microsoft.AspNetCore.Authentication.Cookies
-@using Microsoft.AspNetCore.Mvc
-@using Microsoft.AspNetCore.Mvc.RazorPages
+@using Microsoft.AspNetCore.Authorization
 
 @page "/logout"
 
@@ -22,9 +20,11 @@
 			if (HttpContext.User.Identity.IsAuthenticated)
 			{
 				await HttpContext.SignOutAsync();
-				navigationManager.NavigateTo("/", true);
 			}
+
+			navigationManager.NavigateTo("/", true);
 		}
+
 		navigationManager.NavigateTo("/logout", true);
 	}
 }

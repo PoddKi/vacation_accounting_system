@@ -1,17 +1,20 @@
-﻿
-// Модель лога действий
-namespace VacationAccountingSystem.Models
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace VacationAccountingSystem.Models;
+
+[Table("audit_log")]
+public record AuditLog
 {
-    public class AuditLog
-    {
-        public int Id { get; }
-        public string Action { get; }
-        public DateTime Time { get; }
-        public AuditLog(int id, string action, DateTime time) 
-        {
-            Id = id;
-            Action = action;
-            Time = time;
-        }
-    }
+    [Key]
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    [Column("id")]
+    public int Id { get; init; }
+
+    [Column("action")]
+    [MaxLength(100)]
+    public string Action { get; init; }
+
+    [Column("date_time")]
+    public DateTime DateTime { get; init; }
 }

@@ -21,7 +21,7 @@ namespace VacationAccountingSystem.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("VacationAccountingSystem.Domain.Entities.Department", b =>
+            modelBuilder.Entity("VacationAccountingSystem.Models.Department", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -46,7 +46,7 @@ namespace VacationAccountingSystem.Migrations
                     b.ToTable("department");
                 });
 
-            modelBuilder.Entity("VacationAccountingSystem.Domain.Entities.User", b =>
+            modelBuilder.Entity("VacationAccountingSystem.Models.User", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -94,18 +94,18 @@ namespace VacationAccountingSystem.Migrations
                     b.ToTable("user");
                 });
 
-            modelBuilder.Entity("VacationAccountingSystem.Domain.Entities.Department", b =>
+            modelBuilder.Entity("VacationAccountingSystem.Models.Department", b =>
                 {
-                    b.HasOne("VacationAccountingSystem.Domain.Entities.Department", "ParentDepartment")
+                    b.HasOne("VacationAccountingSystem.Models.Department", "ParentDepartment")
                         .WithMany()
                         .HasForeignKey("parent_id");
 
                     b.Navigation("ParentDepartment");
                 });
 
-            modelBuilder.Entity("VacationAccountingSystem.Domain.Entities.User", b =>
+            modelBuilder.Entity("VacationAccountingSystem.Models.User", b =>
                 {
-                    b.HasOne("VacationAccountingSystem.Domain.Entities.Department", "Department")
+                    b.HasOne("VacationAccountingSystem.Models.Department", "Department")
                         .WithMany()
                         .HasForeignKey("department_id")
                         .OnDelete(DeleteBehavior.Cascade)

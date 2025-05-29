@@ -31,7 +31,19 @@ builder.Services.AddDbContext<VacationDbContext>(x =>
         x.UseNpgsql(connectionString);
     });
 
+builder.Services.AddHttpClient();
+
 var app = builder.Build();
+
+//app.MapGet("/time", () => DateTime.Now.ToShortTimeString());
+
+//app.MapControllerRoute("default", "{controller=Department}/{action=Index}/{id?}");
+
+//app.MapPost("/api/department", () =>
+//{
+//    return await _vacationDbContext.Departments.ToListAsync();
+//    return Results.Json(user);
+//});
 
 if (!app.Environment.IsDevelopment())
 {

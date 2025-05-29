@@ -1,6 +1,4 @@
 ﻿@using Microsoft.AspNetCore.Authorization
-@using BlazorBootstrap
-@using MudBlazor
 
 @page "/info"
 @rendermode InteractiveServer
@@ -25,7 +23,7 @@
         </Content>
     </Tab>
     <Tab Title="Сотрудники">
-        <Content>
+        @* <Content>
             <Grid TItem="User"
                   Class="table table-hover table-bordered table-striped"
                   Data="users"
@@ -49,7 +47,7 @@
                 </GridColumns>
 
             </Grid>
-        </Content>
+        </Content> *@
     </Tab>
     @* <Tab Title="Производственный календарь">
         <Content>
@@ -96,12 +94,12 @@
         return await Task.FromResult(filtersTranslation);
     }
 
-    private List<User> users = new List<User>()
-    {
-        new User(1, "Сотрудник 1", RolesEnum.Employee, null),
-        new User(2, "Сотрудник 2", RolesEnum.HeadOfDepartment, null),
-        new User(3, "Сотрудник 3", RolesEnum.Employee, null),
+    // private List<User> users = new List<User>()
+    // {
+    //     new User(1, "Сотрудник 1", RolesEnum.Employee, null),
+    //     new User(2, "Сотрудник 2", RolesEnum.HeadOfDepartment, null),
+    //     new User(3, "Сотрудник 3", RolesEnum.Employee, null),
 
-    };
+    // };
 
 }

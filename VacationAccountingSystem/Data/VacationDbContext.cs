@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using VacationAccountingSystem.Domain.Entities;
+using System.Net.NetworkInformation;
+using VacationAccountingSystem.Models;
 
 namespace VacationAccountingSystem.Data;
 

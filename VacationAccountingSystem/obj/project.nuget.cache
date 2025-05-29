@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "6OIq6vZ9XDM=",
+  "dgSpecHash": "qHOI2pI48Vg=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Grinya\\source\\repos\\vacation_accounting_system\\VacationAccountingSystem\\VacationAccountingSystem.csproj",
+  "projectFilePath": "C:\\Users\\Grinya\\Source\\Repos\\vacation_accounting_system\\VacationAccountingSystem\\VacationAccountingSystem.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Grinya\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\Grinya\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

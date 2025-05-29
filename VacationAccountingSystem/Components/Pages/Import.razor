@@ -1,10 +1,10 @@
 ﻿@using Microsoft.AspNetCore.Authorization
-@using BlazorBootstrap
-@using MudBlazor
 
 @page "/import"
 @rendermode InteractiveServer
-@attribute [Authorize(Roles = "HR,Admin")]
+@attribute [Authorize(Roles = "Admin")]
+
+@inject IHttpClientFactory ClientFactory
 
 <PageTitle>Импорт</PageTitle>
 
@@ -32,10 +32,22 @@
 
     String data = String.Empty;
 
+    HttpClient httpClient = null!;
+
+    protected override async Task OnInitializedAsync()
+    {
+        httpClient = ClientFactory.CreateClient();
+        // httpClient.BaseAddress = new Uri("https://localhost:7136/api/department/");
+    }
 
     void InDevelopment()
     {
         in_development_modal.OnShowModalClick();
+    }
+
+    class Error
+    {
+        public string Details { get; set; } = "";
     }
 
     private async Task HandleOrgStructureUpload(InputFileChangeEventArgs e)
@@ -44,37 +56,138 @@
         {
             var file = e.File;
 
-            try
+            var newFileName = "departments_" + DateTime.Now.Ticks.ToString() + ".xlsx";
+
+            var folderPath = System.IO.Path.Combine(System.IO.Directory.GetCurrentDirectory(), "users_uploads", "org-structure");
+            var filePath = Path.Combine(folderPath, newFileName);
+            Directory.CreateDirectory(folderPath);
+
+            await using FileStream fileStream = new(filePath, FileMode.Create);
+            await file.OpenReadStream().CopyToAsync(fileStream);
+            fileStream.Close();
+
+            var workbook = new XLWorkbook(filePath);
+            var worksheet = workbook.Worksheet(1);
+
+            data = worksheet.Row(1).Cell(1).GetValue<String>();
+
+            var departments = new List<Department>();
+            data = (departments is null).ToString();
+            var rows = worksheet.RangeUsed().RowsUsed().Skip(1);
+            foreach (var row in rows)
             {
-                var newFileName = "departments_" + DateTime.Now.Ticks.ToString() + ".xlsx";
+                if (row.IsEmpty())
+                    break;
 
-                var folderPath = System.IO.Path.Combine(System.IO.Directory.GetCurrentDirectory(), "users_uploads", "org-structure");
-                var filePath = Path.Combine(folderPath, newFileName);
-                Directory.CreateDirectory(folderPath);
-
-                await using FileStream fileStream = new(filePath, FileMode.Create);
-                await file.OpenReadStream().CopyToAsync(fileStream);
-                fileStream.Close();
-
-                var workbook = new XLWorkbook(filePath);
-                var worksheet = workbook.Worksheet(1);
-
-                data = worksheet.Row(1).Cell(1).GetValue<String>();
-                bool empty = worksheet.Row(1).IsEmpty();
-
-                var rows = worksheet.RangeUsed().RowsUsed().Skip(1);
-                foreach (var row in rows)
-                {
-                    //var rowNumber = row.RowNumber();
-                }
-
-                await file_uploaded_modal.OnShowModalClick();
+                // departments.Add(new Department)
+                //var rowNumber = row.RowNumber();
             }
-            catch (Exception exception)
-            {
-                Console.WriteLine(exception.Message);
-                await file_not_uploaded_modal.OnShowModalClick();
-            }
+
+            data = "ff2";
+
+            var department = new Department() { Name = "Dep1" };
+
+            data = "ff3";
+
+            // var response = await httpClient.PostAsJsonAsync("", department);
+            
+            // var response = await httpClient.GetAsync("https:localhost:7136/time");
+            // data = await response.Content.ReadAsStringAsync();
+
+            // if (response.IsSuccessStatusCode)
+            // {
+            //     var newDepartment = await response.Content.ReadFromJsonAsync<Department>();
+            //     if (newDepartment != null) data = $"Создан объект Person с id = {newDepartment.Name}";
+            // }
+            // else
+            // {
+            //     var error = await response.Content.ReadFromJsonAsync<Error>();
+            //     if (error != null) data = error.Details;
+            // }
+
+            // var response = await httpClient.GetAsync("/api/department/2");
+
+            // data = "ff4";
+
+            // if (response.IsSuccessStatusCode)
+            // {
+            //     data = "ff5";
+            //     var newDepartment = await response.Content.ReadFromJsonAsync<Department>();
+            //     if (newDepartment != null) data = $"Получен department = {newDepartment.Name}";
+            // }
+            // else
+            // {
+            //     data = "ff6";
+            //     var error = await response.Content.ReadFromJsonAsync<Error>();
+            //     if (error != null) data = error.Details;
+            // }
+
+            await file_uploaded_modal.OnShowModalClick();
+
+            // try
+            // {
+            //     var newFileName = "departments_" + DateTime.Now.Ticks.ToString() + ".xlsx";
+
+            //     var folderPath = System.IO.Path.Combine(System.IO.Directory.GetCurrentDirectory(), "users_uploads", "org-structure");
+            //     var filePath = Path.Combine(folderPath, newFileName);
+            //     Directory.CreateDirectory(folderPath);
+
+            //     await using FileStream fileStream = new(filePath, FileMode.Create);
+            //     await file.OpenReadStream().CopyToAsync(fileStream);
+            //     fileStream.Close();
+
+            //     var workbook = new XLWorkbook(filePath);
+            //     var worksheet = workbook.Worksheet(1);
+
+            //     data = worksheet.Row(1).Cell(1).GetValue<String>();
+
+            //     var departments = new List<Department>();
+
+            //     var rows = worksheet.RangeUsed().RowsUsed().Skip(1);
+            //     foreach (var row in rows)
+            //     {
+            //         if (row.IsEmpty())
+            //             break;
+
+            //         departments.Add(new Department)
+            //         var rowNumber = row.RowNumber();
+            //     }
+
+            //     var department = new Department() { Name = "Dep1" };
+
+            //     var response = await httpClient.PostAsJsonAsync("", department);
+
+            //     if (response.IsSuccessStatusCode)
+            //     {
+            //         var newDepartment = await response.Content.ReadFromJsonAsync<Department>();
+            //         if (newDepartment != null) data = $"Создан объект Person с id = {newDepartment.Name}";
+            //     }
+            //     else
+            //     {
+            //         var error = await response.Content.ReadFromJsonAsync<Error>();
+            //         if (error != null) data = error.Details;
+            //     }
+
+            //     var response = await httpClient.GetAsync("2");
+
+            //     if (response.IsSuccessStatusCode)
+            //     {
+            //         var newDepartment = await response.Content.ReadFromJsonAsync<Department>();
+            //         if (newDepartment != null) data = $"Получен department = {newDepartment.Name}";
+            //     }
+            //     else
+            //     {
+            //         var error = await response.Content.ReadFromJsonAsync<Error>();
+            //         if (error != null) data = error.Details;
+            //     }
+
+            //     await file_uploaded_modal.OnShowModalClick();
+            // }
+            // catch (Exception exception)
+            // {
+            //     Console.WriteLine(exception.Message);
+            //     await file_not_uploaded_modal.OnShowModalClick();
+            // }
         }
     }
 
@@ -84,8 +197,8 @@
         {
             var file = e.File;
 
-            try
-            {
+            // try
+            // {
                 var newFileName = "employees_" + DateTime.Now.Ticks.ToString() + ".xlsx";
 
                 var folderPath = System.IO.Path.Combine(System.IO.Directory.GetCurrentDirectory(), "users_uploads", "employees_lists");
@@ -102,12 +215,12 @@
                 data = ws1.Row(1).Cell(1).GetValue<String>();
 
                 await file_uploaded_modal.OnShowModalClick();
-            }
-            catch (Exception exception)
-            {
-                Console.WriteLine(exception.Message);
-                await file_not_uploaded_modal.OnShowModalClick();
-            }
+            // }
+            // catch (Exception exception)
+            // {
+            //     Console.WriteLine(exception.Message);
+            //     await file_not_uploaded_modal.OnShowModalClick();
+            // }
         }
     }
 

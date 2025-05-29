@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Grinya\\source\\repos\\vacation_accounting_system\\VacationAccountingSystem\\VacationAccountingSystem.csproj": {}
+    "C:\\Users\\Grinya\\Source\\Repos\\vacation_accounting_system\\VacationAccountingSystem\\VacationAccountingSystem.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Grinya\\source\\repos\\vacation_accounting_system\\VacationAccountingSystem\\VacationAccountingSystem.csproj": {
+    "C:\\Users\\Grinya\\Source\\Repos\\vacation_accounting_system\\VacationAccountingSystem\\VacationAccountingSystem.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Grinya\\source\\repos\\vacation_accounting_system\\VacationAccountingSystem\\VacationAccountingSystem.csproj",
+        "projectUniqueName": "C:\\Users\\Grinya\\Source\\Repos\\vacation_accounting_system\\VacationAccountingSystem\\VacationAccountingSystem.csproj",
         "projectName": "VacationAccountingSystem",
-        "projectPath": "C:\\Users\\Grinya\\source\\repos\\vacation_accounting_system\\VacationAccountingSystem\\VacationAccountingSystem.csproj",
+        "projectPath": "C:\\Users\\Grinya\\Source\\Repos\\vacation_accounting_system\\VacationAccountingSystem\\VacationAccountingSystem.csproj",
         "packagesPath": "C:\\Users\\Grinya\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Grinya\\Source\\Repos\\vacation_accounting_system\\VacationAccountingSystem\\obj\\",
+        "outputPath": "C:\\Users\\Grinya\\source\\repos\\vacation_accounting_system\\VacationAccountingSystem\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -1,8 +1,9 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Net.NetworkInformation;
 using VacationAccountingSystem.Data;
-using VacationAccountingSystem.Domain.Entities;
+using VacationAccountingSystem.Models;
 
 namespace VacationAccountingSystem.Controllers;
 
