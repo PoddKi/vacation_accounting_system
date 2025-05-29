@@ -6,4 +6,35 @@
 
 <PageTitle>Отпуска</PageTitle>
 
-<h1>ОТПУСКА</h1>
+<h2>Новая заявка на отпуск</h2>
+
+<div class="mb-3" style="max-width:30rem;">
+    <DateInput TValue="DateOnly?" @bind-Value="@startDate" Placeholder="Дата начала" />
+</div>
+
+<div class="mb-3" style="max-width:30rem;">
+    <DateInput TValue="DateOnly?" @bind-Value="@endDate" Placeholder="Дата конца" />
+</div>
+
+<div class="mb-3" style="max-width:30rem;">
+    <TextInput @bind-Value="@deputy" Placeholder="Заместитель" />
+</div>
+
+<Button Type="BlazorBootstrap.ButtonType.Submit" Color="ButtonColor.Primary"> Отправить </Button>
+
+<h2>Запланированные отпуска</h2>
+
+<h4>Иванов И.И.</h4>
+<h5>Отдел: Бухгалтерия</h5>
+<h5>Дата начала: 03.04.2026</h5>
+<h5>Дата конца: 25.04.2026</h5>
+<h5>Заместитель: Александров А.А.</h5>
+
+@code {
+    private DateOnly? startDate = null;
+    private DateOnly? endDate = null;
+    private string? deputy = null;
+    // private string? enteredText = null;
+    // private string? enteredText = null;
+    // private string? enteredText = null;
+}

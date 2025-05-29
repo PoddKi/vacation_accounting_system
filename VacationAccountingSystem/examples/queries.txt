@@ -1,0 +1,29 @@
+INSERT INTO public.department(
+  name, parent_id)
+  VALUES 
+('Отдел продаж', NULL),
+('IT-отдел', NULL),
+('Финансово-экономический департамент', NULL),
+('Бухгалтерия', 5),
+('Юридический отдел', 5),
+('Отдел кадров', NULL);
+
+
+
+SELECT * FROM public.department;
+
+
+
+INSERT INTO public."user"(
+	full_name, department_id, email, password, function, role)
+	VALUES
+('Сидоров С.С.', 3, 'sidorov@rosneft.ru', 'admin_pass', 'Администратор IT-инфраструктуры', 'Admin'),
+('Иванов И.И.', 6, 'ivanov@rosneft.ru', 'employee_pass1', 'Бухгалтер', 'Employee'),
+('Александров А.А.', 6, 'aleskandrov@rosneft.ru', 'employee_pass2', 'Бухгалтер', 'Employee'),
+('Петров П.П.', 6, 'petrov@rosneft.ru', 'employee_pass3', 'Бухгалтер', 'Employee'),
+('Дмитриев Д.Д.', 6, 'dmitriev@rosneft.ru', 'headofdepartment_pass', 'Главный бухгалтер', 'HeadOfDepartment'),
+('Алексеев А.А.', 8, 'alekseev@rosneft.ru', 'hr_pass', 'HR-специалист', 'HR');
+
+
+
+SELECT * FROM public.user;

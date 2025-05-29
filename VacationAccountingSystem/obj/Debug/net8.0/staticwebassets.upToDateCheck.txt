@@ -1,4 +1,7 @@
+wwwroot\.~lock.vacations.xlsx#
 wwwroot\access_denied.png
 wwwroot\app.css
 wwwroot\favicon.png
 wwwroot\logo.png
+wwwroot\problems.xlsx
+wwwroot\vacations.xlsx

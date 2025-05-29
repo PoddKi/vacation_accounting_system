@@ -3,13 +3,24 @@
 @page "/reports"
 @rendermode InteractiveServer
 @attribute [Authorize(Roles = "HR,Admin")]
+@inject IJSRuntime JS
 
 <PageTitle>Отчёты</PageTitle>
 
+<script>
+    window.triggerFileDownload = (fileName, url) => {
+      const anchorElement = document.createElement('a');
+      anchorElement.href = url;
+      anchorElement.download = fileName ?? '';
+      anchorElement.click();
+      anchorElement.remove();
+    }
+</script>
+
 <InDevelopmentModal @ref="in_development_modal"></InDevelopmentModal>
 
-<Button Color="ButtonColor.Success" Size="ButtonSize.Large" @onclick="InDevelopment">Выгрузить график отпусков</Button>
-<Button Color="ButtonColor.Danger" Size="ButtonSize.Large" @onclick="InDevelopment">Выгрузить проблемы планирования отпусков</Button>
+<Button Color="ButtonColor.Success" Size="ButtonSize.Large" @onclick="DownloadVacations">Выгрузить график отпусков</Button>
+<Button Color="ButtonColor.Danger" Size="ButtonSize.Large" @onclick="DownloadProblems">Выгрузить проблемы планирования отпусков</Button>
 
 @code {
     InDevelopmentModal in_development_modal;
@@ -17,5 +28,19 @@
     void InDevelopment()
     {
         in_development_modal.OnShowModalClick();
+    }
+
+    private async Task DownloadVacations()
+    {
+        var fileName = "vacations.xlsx";
+        var fileURL = "/vacations.xlsx";
+        await JS.InvokeVoidAsync("triggerFileDownload", fileName, fileURL);
+    }
+
+    private async Task DownloadProblems()
+    {
+        var fileName = "problems.xlsx";
+        var fileURL = "/problems.xlsx";
+        await JS.InvokeVoidAsync("triggerFileDownload", fileName, fileURL);
     }
 }

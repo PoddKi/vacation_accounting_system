@@ -20,10 +20,19 @@
                     </ItemTemplate>
                 </MudTreeView>
             </MudPaper> *@
+            <MudTreeView T="string" ReadOnly>
+                <MudTreeViewItem Text="Отдел продаж" />
+                <MudTreeViewItem Text="IT-отдел" />
+                <MudTreeViewItem Text="Финансово-экономический департамент">
+                    <MudTreeViewItem Text="Бухгалтерия" />
+                    <MudTreeViewItem Text="Юридический отдел" />
+                </MudTreeViewItem>
+                <MudTreeViewItem Text="Отдел продаж" />
+            </MudTreeView>
         </Content>
     </Tab>
     <Tab Title="Сотрудники">
-        @* <Content>
+        <Content>
             <Grid TItem="User"
                   Class="table table-hover table-bordered table-striped"
                   Data="users"
@@ -37,17 +46,29 @@
                   AllowFiltering="true"
                   Responsive="true">
 
-                 <GridColumns>
+                <GridColumns>
                     <GridColumn TItem="User" HeaderText="ID" PropertyName="Id" SortString="Id" SortKeySelector="item => item.Id" FilterTextboxWidth="50" HeaderTextAlignment="Alignment.Center" TextAlignment="Alignment.Center">
                         @context.Id
                     </GridColumn>
-                    <GridColumn TItem="User" HeaderText="ФИО" PropertyName="FullName" SortString="FullName" SortKeySelector="item => item.FullName" FilterTextboxWidth="80">
+                    <GridColumn TItem="User" HeaderText="Email" PropertyName="Email" SortString="Email" SortKeySelector="item => item.Email" FilterTextboxWidth="80" HeaderTextAlignment="Alignment.Center" TextAlignment="Alignment.Center">
+                        @context.Email
+                    </GridColumn>
+                    <GridColumn TItem="User" HeaderText="Роль" PropertyName="Role" SortString="Role" SortKeySelector="item => item.Role" FilterTextboxWidth="80" HeaderTextAlignment="Alignment.Center" TextAlignment="Alignment.Center">
+                        @context.Role
+                    </GridColumn>
+                    <GridColumn TItem="User" HeaderText="ФИО" PropertyName="FullName" SortString="FullName" SortKeySelector="item => item.FullName" FilterTextboxWidth="80" HeaderTextAlignment="Alignment.Center" TextAlignment="Alignment.Center">
                         @context.FullName
+                    </GridColumn>
+                    <GridColumn TItem="User" HeaderText="Должность" PropertyName="Function" SortString="Function" SortKeySelector="item => item.Function" FilterTextboxWidth="80" HeaderTextAlignment="Alignment.Center" TextAlignment="Alignment.Center">
+                        @context.Function
+                    </GridColumn>
+                    <GridColumn TItem="User" HeaderText="Отдел" PropertyName="DepartmentName" SortString="DepartmentName" SortKeySelector="item => item.Department.Name" FilterTextboxWidth="80" HeaderTextAlignment="Alignment.Center" TextAlignment="Alignment.Center">
+                        @context.Department.Name
                     </GridColumn>
                 </GridColumns>
 
             </Grid>
-        </Content> *@
+        </Content>
     </Tab>
     @* <Tab Title="Производственный календарь">
         <Content>
@@ -57,18 +78,18 @@
 </Tabs>
 
 @code {
-    public async Task<IReadOnlyCollection<TreeItemData<string>>> LoadTreeItemData(string parentValue)
-    {
-        //await Task.Delay(500);
+    // public async Task<IReadOnlyCollection<TreeItemData<string>>> LoadTreeItemData(string parentValue)
+    // {
+    //     await Task.Delay(500);
 
-        return [
-            new TreeItemData<string> { Value = $"More Spam" },
-            new TreeItemData<string> { Value = $"L.E.D Door Mats", Expandable = false },
-            new TreeItemData<string> { Value = $"Car Beauty Salon",Expandable = false },
-            new TreeItemData<string> { Value = $"Fakedoors.com",  Expandable = false },
-            new TreeItemData<string> { Value = $"Bluetooth Toilet", Expandable = false }
-        ];
-    }
+    //     return [
+    //         new TreeItemData<string> { Value = $"More Spam" },
+    //         new TreeItemData<string> { Value = $"L.E.D Door Mats", Expandable = false },
+    //         new TreeItemData<string> { Value = $"Car Beauty Salon",Expandable = false },
+    //         new TreeItemData<string> { Value = $"Fakedoors.com",  Expandable = false },
+    //         new TreeItemData<string> { Value = $"Bluetooth Toilet", Expandable = false }
+    //     ];
+    // }
 
     private async Task<IEnumerable<FilterOperatorInfo>> GridFiltersTranslationProvider()
     {
@@ -94,12 +115,17 @@
         return await Task.FromResult(filtersTranslation);
     }
 
-    // private List<User> users = new List<User>()
-    // {
-    //     new User(1, "Сотрудник 1", RolesEnum.Employee, null),
-    //     new User(2, "Сотрудник 2", RolesEnum.HeadOfDepartment, null),
-    //     new User(3, "Сотрудник 3", RolesEnum.Employee, null),
+    // private List<Department> departments = new Department() { Id = 1, Name = "Отдел продаж" };
 
-    // };
+    private List<User> users = new List<User>()
+    {
+        new User() { Id = 9, Email = "sidorov@rosneft.ru", Password = "1", Role = "Админ", FullName = "Сидоров С.С.", Function = "Администратор IT-инфраструктуры", Department = new Department() { Id = 1, Name = "IT-отдел" } },
+        new User() { Id = 10, Email = "ivanov@rosneft.ru", Password = "1", Role = "Сотрудник", FullName = "Иванов И.И.", Function = "Бухгалтер", Department = new Department() { Id = 1, Name = "Бухгалтерия" } },
+        new User() { Id = 11, Email = "aleskandrov@rosneft.ru", Password = "1", Role = "Сотрудник", FullName = "Александров А.А.", Function = "Бухгалтер", Department = new Department() { Id = 1, Name = "Бухгалтерия" } },
+        new User() { Id = 12, Email = "petrov@rosneft.ru", Password = "1", Role = "Сотрудник", FullName = "Петров П.П.", Function = "Бухгалтер", Department = new Department() { Id = 1, Name = "Бухгалтерия" } },
+        new User() { Id = 13, Email = "dmitriev@rosneft.ru", Password = "1", Role = "Начальник отдела", FullName = "Дмитриев Д.Д.", Function = "Главный бухгалтер", Department = new Department() { Id = 1, Name = "Бухгалтерия" } },
+        new User() { Id = 14, Email = "alekseev@rosneft.ru", Password = "1", Role = "HR-специалист", FullName = "Алексеев А.А.", Function = "HR-специалист", Department = new Department() { Id = 1, Name = "Отдел кадров" } },
+
+    };
 
 }

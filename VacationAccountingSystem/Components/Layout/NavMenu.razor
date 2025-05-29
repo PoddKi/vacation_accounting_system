@@ -1,4 +1,9 @@
-﻿<nav class="navbar navbar-expand-md">
+﻿@using Microsoft.AspNetCore.Authentication
+@using Microsoft.AspNetCore.Authentication.Cookies
+@inject VacationDbContext vacationDbContext
+@inject NavigationManager navigationManager
+
+<nav class="navbar navbar-expand-md">
     <div class="container-fluid">
         <img class="logo" src="/logo.png">
         <button class="navbar-toggler @NavButtonCssClass" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
@@ -9,6 +14,9 @@
             <Authorized>
                 <div class="collapse navbar-collapse @NavBarCssClass" id="navbarCollapse" @onclick="ToggleNavMenu">
                     <ul class="navbar-nav me-auto mb-2 mb-md-0">
+
+                        @* <div>@username</div> *@
+
                         <AuthorizeView Roles="Employee,HeadOfDepartment,HR,Admin">
                             <Authorized>
                                 <li class="nav-item">
@@ -65,9 +73,27 @@
 </nav>
 
 @code {
+    // [CascadingParameter]
+    // public HttpContext? HttpContext { get; set; }
+
+    // public string? username { get; set; }
+
     private bool collapseNavMenu = true;
     private string? NavBarCssClass => collapseNavMenu ? null : "show";
     private string? NavButtonCssClass => collapseNavMenu ? "collapsed" : null;
+
+
+    protected override Task OnParametersSetAsync()
+    {
+        // if (HttpContext is not null)
+        // {
+
+        //     if (HttpContext.User.Identity.IsAuthenticated)
+        //         username ??= HttpContext.User.Identity.IsAuthenticated.ToString();
+        // }
+
+        return base.OnParametersSetAsync();
+    }
 
     private void ToggleNavMenu()
     {
